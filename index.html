@@ -6,15 +6,33 @@
     <title>Document</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fonts.css">
 </head>
 <body>
-    <table id="bookTable">
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Read or Not</th>
-        </tr>
-    </table>
+    <div id="container">
+        <div id="header">
+            <div id="websiteName">
+                MyLibrary
+            </div>
+            <div id="searchBlock">
+                <img id="search_icon" src="images/search_icon.svg">
+                <input id="searchBar" type="text">
+            </div>
+            <div id="addBook__block">
+                <button id="addBook__button">Add book</button>
+            </div>
+        </div>
+        <div id="content">
+            <table id="bookTable">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read or Not</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
 </body>
 </html>
