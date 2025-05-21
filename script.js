@@ -1,9 +1,28 @@
 const myLibrary = [];
 
-function Book() {
+function Book(id, title, author, pages, read) {
     //the constructor...
+    this.id = id,
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.read = read,
+    this.info = function() {
+        return (`${title} by ${author}, ${pages} pages, ${read}`);
+    }
 }
 
-function addBookToLibrary() {
+    
+
+function addBookToLibrary(id, title, author, pages, read) {
     // take params, create a book then it in the array
+    let uuid = self.crypto.randomUUID();
+    let book = new Book(uuid, title, author, pages, read)
+    myLibrary.push(book)
 }
+
+addBookToLibrary('id', 'The Hobbit', 'Tolkien', '256', "no");
+addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', "yes");
+
+console.log(myLibrary)
+
