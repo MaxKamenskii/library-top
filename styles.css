@@ -31,6 +31,7 @@
 #websiteName {
     color: var(--text-primary);
     font-size: 2rem;
+    margin-left: 10px;
 }
 #searchBlock {
     align-self: center;
@@ -78,4 +79,24 @@ td, th {
 table {
     justify-self: stretch;
     border-collapse: collapse;
+}
+
+/* Form styling */
+#addBook__form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 300px;
+    background-color: var(--header-color);
+    color: var(--text-primary);
+    align-items: center;
+}
+#addBook__form input[type='text'] {
+    width: 80%;
+}
+#addBook__form input[type='number'] {
+    width: 80%;
+}
+#addBook__submit {
+    color: black;
 }

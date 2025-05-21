@@ -12,19 +12,18 @@ function Book(id, title, author, pages, read) {
     }
 }
 
-    
 
-function addBookToLibrary(id, title, author, pages, read) {
+function addBookToLibrary(i, title, author, pages, read) {
     // take params, create a book then it in the array
     let uuid = self.crypto.randomUUID();
     let book = new Book(uuid, title, author, pages, read)
     myLibrary.push(book)
 }
 
-addBookToLibrary('id', 'The Hobbit', 'Tolkien', '256', "no");
-addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', "yes");
+// addBookToLibrary('id', 'The Hobbit', 'Tolkien', '256', "no");
+// addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', "yes");
 
-console.log(myLibrary)
+// console.log(myLibrary)
 
 function addToTable(data) {
     var table = document.getElementById('bookTable')
@@ -40,4 +39,17 @@ function addToTable(data) {
     }
 }
 
-addToTable(myLibrary);
+document.getElementById("addBook__submit").onclick = function() {
+    // bookTitle = document.getElementById("form__title").value;
+    let bookTitle = document.getElementById("form__title").value;
+    let bookAuthor = document.getElementById("form__author").value;
+    let bookPages = document.getElementById("form__pages").value;
+    let bookRead = document.getElementById("form__read").value;
+    console.log(`Book title is: ${bookTitle}`)
+    console.log(`Book author is: ${bookAuthor}`)
+    console.log(`Book pages: ${bookPages}`)
+    console.log(`Book read is: ${bookRead}`)
+    addBookToLibrary("id", bookTitle, bookAuthor, bookPages, bookRead);
+    addToTable(myLibrary)
+    console.log(myLibrary)
+}
