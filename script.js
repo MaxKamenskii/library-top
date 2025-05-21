@@ -39,6 +39,15 @@ function addToTable(data) {
     }
 }
 
+document.getElementById("addBook__button").onclick = function() {
+    let block = document.getElementById("formBlock");
+      if (block.style.display === "none") {
+            block.style.display = "block";
+        } else {
+            block.style.display = "none";
+        }
+}
+
 document.getElementById("addBook__submit").onclick = function() {
     // bookTitle = document.getElementById("form__title").value;
     let bookTitle = document.getElementById("form__title").value;

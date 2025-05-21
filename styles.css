@@ -82,6 +82,15 @@ table {
 }
 
 /* Form styling */
+#formBlock {
+    display: none;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    top: 25%;
+    margin-inline: auto; 
+    width: fit-content;
+}
 #addBook__form {
     display: flex;
     flex-direction: column;
