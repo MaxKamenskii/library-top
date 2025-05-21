@@ -26,3 +26,18 @@ addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', "yes");
 
 console.log(myLibrary)
 
+function addToTable(data) {
+    var table = document.getElementById('bookTable')
+
+    for (var i = 0; i < data.length; i++) {
+        var row = `<tr>
+                        <td>${data[i].title}</td>
+                        <td>${data[i].author}</td>
+                        <td>${data[i].pages}</td>
+                        <td>${data[i].read}</td>
+                    </tr>`
+            table.innerHTML += row
+    }
+}
+
+addToTable(myLibrary);
