@@ -32,21 +32,22 @@
                 </tr>
             </table>
         </div>
-            <div id="formBlock">
+    </div>
+    <div id="formBlock">
+        <button id="closeForm"><img src="images/close_icon.svg"></button>
         <form id="addBook__form">
-            <label for="form__title">Title</label>
+            <label for="form__title" required>Title</label>
             <input id="form__title" name="form__title" type="text">
             <label for="form__author">Author</label>
-            <input id="form__author" name="form__author" type="text">
+            <input id="form__author" name="form__author" type="text" required>
             <label for="form__pages">Pages</label>
-            <input id="form__pages" name="form__pages" type="number">
-            <label for="form__read">Have you read it?</label>
+            <input id="form__pages" name="form__pages" type="number" min="1" required>
+            <label for="form__read" required>Have you read it?</label>
             <input id="form__read" name="form__read" type="text">
+            <button type="button" id="addBook__submit">Add book</button>
         </form>
-        <button id="addBook__submit">Add book</button>
+        
     </div>
-    </div>
-    
 
 
     

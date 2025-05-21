@@ -83,7 +83,8 @@ table {
 
 /* Form styling */
 #formBlock {
-    display: none;
+    display: flex;
+    background-color: var(--header-color);
     position: absolute;
     left: 0; 
     right: 0; 
@@ -96,9 +97,13 @@ table {
     flex-direction: column;
     width: 250px;
     height: 300px;
-    background-color: var(--header-color);
     color: var(--text-primary);
     align-items: center;
+}
+#closeForm {
+    align-self: end;
+    border-radius: 5px;
+    background-color: var(--header-color);
 }
 #addBook__form input[type='text'] {
     width: 80%;
@@ -107,5 +112,6 @@ table {
     width: 80%;
 }
 #addBook__submit {
+    margin-top: 10px;
     color: black;
 }

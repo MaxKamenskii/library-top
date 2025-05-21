@@ -20,11 +20,12 @@ function addBookToLibrary(i, title, author, pages, read) {
     myLibrary.push(book)
 }
 
-// addBookToLibrary('id', 'The Hobbit', 'Tolkien', '256', "no");
-// addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', "yes");
+addBookToLibrary('id', 'The Hobbit', 'Tolkien', '256', "no");
+addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', "yes");
+addToTable(myLibrary);
 
 // console.log(myLibrary)
-
+// Add everything to the table
 function addToTable(data) {
     var table = document.getElementById('bookTable')
 
@@ -38,27 +39,59 @@ function addToTable(data) {
             table.innerHTML += row
     }
 }
+// Add last item from myLibrary to the table 
+function addLastToTable(data) {
+    var table = document.getElementById('bookTable')
 
+        var row = `<tr>
+                        <td>${data.at(-1).title}</td>
+                        <td>${data.at(-1).author}</td>
+                        <td>${data.at(-1).pages}</td>
+                        <td>${data.at(-1).read}</td>
+                    </tr>`
+            table.innerHTML += row
+}
+
+document.getElementById("formBlock").style.display = "none";
 document.getElementById("addBook__button").onclick = function() {
+    
     let block = document.getElementById("formBlock");
+    let background = document.getElementById("container");
       if (block.style.display === "none") {
             block.style.display = "block";
+            background.style.filter = "blur(10px)";
         } else {
             block.style.display = "none";
+            background.style.filter = "none";
+        }
+}
+
+let closeFormButton = document.getElementById("closeForm")
+
+closeFormButton.onclick = function() {
+    let block = document.getElementById("formBlock");
+    let background = document.getElementById("container");
+    if (block.style.display === "none") {
+            block.style.display = "block";
+            background.style.filter = "blur(10px)";
+        } else {
+            block.style.display = "none";
+            background.style.filter = "none";
         }
 }
 
 document.getElementById("addBook__submit").onclick = function() {
-    // bookTitle = document.getElementById("form__title").value;
+    let form = document.getElementById("addBook__form")
+    let block = document.getElementById("formBlock");
+    let background = document.getElementById("container");
     let bookTitle = document.getElementById("form__title").value;
     let bookAuthor = document.getElementById("form__author").value;
     let bookPages = document.getElementById("form__pages").value;
     let bookRead = document.getElementById("form__read").value;
-    console.log(`Book title is: ${bookTitle}`)
-    console.log(`Book author is: ${bookAuthor}`)
-    console.log(`Book pages: ${bookPages}`)
-    console.log(`Book read is: ${bookRead}`)
+
     addBookToLibrary("id", bookTitle, bookAuthor, bookPages, bookRead);
-    addToTable(myLibrary)
+    // addToTable(myLibrary);
+    addLastToTable(myLibrary);
     console.log(myLibrary)
+    form.reset()
 }
