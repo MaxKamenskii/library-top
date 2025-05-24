@@ -13,7 +13,11 @@ function Book(id, title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function() {
-
+    if(this.read === true){
+        this.read = false
+    } else if(this.read === false) {
+        this.read = true
+    }
 }
 
 function addBookToLibrary(i, title, author, pages, read) {
@@ -33,6 +37,7 @@ function addToTable(data) {
                         <td>${data[i].title}</td>
                         <td>${data[i].author}</td>
                         <td>${data[i].pages}</td>
+                        <td>${data[i].read}</td>
                         <td><button class="readButton" data-read-id="${data[i].id}">Read</button></td>
 
                         <td><button class="deleteButton" data-button-id="${data[i].id}">Delete</button></td>
@@ -81,11 +86,11 @@ function addLastToTable(data) {
                         <td>${data.at(-1).title}</td>
                         <td>${data.at(-1).author}</td>
                         <td>${data.at(-1).pages}</td>
-                        <td><button class="readButton" data-read-id="${data.at(-1).id}">Read</button></td>
+                        <td>${data.at(-1).read}</td>
+                        <td><button class="readButton" data-read-id="${data.at(-1).id}"></button></td>
                         <td><button class="deleteButton" data-button-id="${data.at(-1).id}">Delete</button></td>
                     </tr>`
             table.innerHTML += row
-
 }
 
 // Open form modal and close modal buttons
@@ -127,3 +132,20 @@ document.getElementById("addBook__submit").onclick = function() {
     console.log(document.getElementById('form__read').checked)
     form.reset()
 }
+
+
+// Read button toggle functionality
+
+document.addEventListener('click', e => {
+    if(e.target.classList.contains("readButton")){
+        const readId = e.target.dataset.readId;
+        console.log(readId)
+        myLibrary.forEach((element) => {
+            if(element.id === readId) {
+                console.log(element.read)
+                element.toggleRead()
+                console.log(element.read)
+            } else return;
+        })
+    }
+})
