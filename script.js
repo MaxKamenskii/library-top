@@ -37,7 +37,6 @@ function addToTable(data) {
                         <td>${data[i].title}</td>
                         <td>${data[i].author}</td>
                         <td>${data[i].pages}</td>
-                        <td>${data[i].read}</td>
                         <td><button class="readButton" data-read-id="${data[i].id}">Read</button></td>
 
                         <td><button class="deleteButton" data-button-id="${data[i].id}">Delete</button></td>
@@ -86,7 +85,6 @@ function addLastToTable(data) {
                         <td>${data.at(-1).title}</td>
                         <td>${data.at(-1).author}</td>
                         <td>${data.at(-1).pages}</td>
-                        <td>${data.at(-1).read}</td>
                         <td><button class="readButton" data-read-id="${data.at(-1).id}"></button></td>
                         <td><button class="deleteButton" data-button-id="${data.at(-1).id}">Delete</button></td>
                     </tr>`
@@ -144,6 +142,15 @@ document.addEventListener('click', e => {
             if(element.id === readId) {
                 console.log(element.read)
                 element.toggleRead()
+                if(e.target.innerHTML === "Read") {
+                    e.target.innerHTML = "Not Read";
+                    e.target.classList.remove("active")
+                    
+                } else if(e.target.innerHTML === "Not Read") {
+                    e.target.innerHTML = "Read"
+                    e.target.classList.add("active")
+                }
+                
                 console.log(element.read)
             } else return;
         })
