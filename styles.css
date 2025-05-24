@@ -83,30 +83,52 @@ table {
 
 /* Form styling */
 #formBlock {
-    display: flex;
+    display: block;
     background-color: var(--header-color);
-    position: absolute;
-    left: 0; 
-    right: 0; 
-    top: 25%;
-    margin-inline: auto; 
-    width: fit-content;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    z-index: 10;
+    width: 250px;
+    max-width: 50%;
+    height: 300px;
+    max-height: 100%;
+}
+#formBlock.active {
+    transform: translate(-50%, -50%) scale(1);
 }
 #addBook__form {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     width: 250px;
     height: 300px;
     color: var(--text-primary);
     align-items: center;
 }
-#closeForm {
-    align-self: end;
+#formBlockHeader {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "robotoregular";
+    padding: 5px 15px;
+    display: flex;
+    color: var(--text-secondary);
+    justify-content: space-between;
+    align-items: center;
+}
+#closeFormButton {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
     border-radius: 5px;
     background-color: var(--header-color);
 }
 #addBook__form input[type='text'] {
     width: 80%;
+
 }
 #addBook__form input[type='number'] {
     width: 80%;
@@ -114,4 +136,29 @@ table {
 #addBook__submit {
     margin-top: 10px;
     color: black;
+}
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* read button styling */
+.readButton {
+    background-color: #2d6a4f;
+}
+
+.readButton.active {
+    background-color: #1f364d;
+    
 }

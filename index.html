@@ -19,7 +19,7 @@
                 <input id="searchBar" type="text">
             </div>
             <div id="addBook__block">
-                <button id="addBook__button">Add book</button>
+                <button data-model-target="#addBook__form" id="addBook__button">Add book</button>
             </div>
         </div>
         <div id="content">
@@ -29,12 +29,17 @@
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Read or Not</th>
+                    <th>manage</th>
                 </tr>
             </table>
         </div>
     </div>
-    <div id="formBlock">
-        <button id="closeForm"><img src="images/close_icon.svg"></button>
+    <div class="modal" id="formBlock">
+        <div id="formBlockHeader">
+            <p>Add Your Book</p>
+            <button id="closeFormButton"><img src="images/close_icon.svg"></button>
+        </div>
+        
         <form id="addBook__form">
             <label for="form__title" required>Title</label>
             <input id="form__title" name="form__title" type="text">
@@ -43,14 +48,13 @@
             <label for="form__pages">Pages</label>
             <input id="form__pages" name="form__pages" type="number" min="1" required>
             <label for="form__read" required>Have you read it?</label>
-            <input id="form__read" name="form__read" type="text">
+            <input id="form__read" name="form__read" type="checkbox" value="checkboxValue">
             <button type="button" id="addBook__submit">Add book</button>
         </form>
         
     </div>
+<div class="overlay" id="overlay"></div>
 
 
-    
-    
 </body>
 </html>
