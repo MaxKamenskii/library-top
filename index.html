@@ -14,10 +14,6 @@
             <div id="websiteName">
                 MyLibrary
             </div>
-            <div id="searchBlock">
-                <img id="search_icon" src="images/search_icon.svg">
-                <input id="searchBar" type="text">
-            </div>
             <div id="addBook__block">
                 <button data-model-target="#addBook__form" id="addBook__button">Add book</button>
             </div>
@@ -41,15 +37,21 @@
         </div>
         
         <form id="addBook__form">
-            <label for="form__title" required>Title</label>
-            <input id="form__title" name="form__title" type="text">
-            <label for="form__author">Author</label>
-            <input id="form__author" name="form__author" type="text" required>
-            <label for="form__pages">Pages</label>
-            <input id="form__pages" name="form__pages" type="number" min="1" required>
-            <label for="form__read" required>Have you read it?</label>
-            <input id="form__read" name="form__read" type="checkbox" value="checkboxValue">
-            <button type="button" id="addBook__submit">Add book</button>
+            <div id="addBook__form__1stblock">
+                <label for="form__title" required>Title</label>
+                <input id="form__title" name="form__title" type="text">
+                <label for="form__author">Author</label>
+                <input id="form__author" name="form__author" type="text" required>
+                <label for="form__pages">Pages</label>
+                <input id="form__pages" name="form__pages" type="number" min="1" required>
+            </div>
+            <div id="addBook__form__2ndblock">
+                <div id="haveReadBlock">
+                    <input id="form__read" name="form__read" type="checkbox" value="checkboxValue">
+                    <label for="form__read" required>Have read</label>
+                </div>
+                <button type="button" id="addBook__submit">Add book</button>
+            </div>
         </form>
         
     </div>

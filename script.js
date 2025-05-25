@@ -1,7 +1,6 @@
 const myLibrary = [];
 
 function Book(id, title, author, pages, read) {
-    //the constructor...
     this.id = id,
     this.title = title,
     this.author = author,
@@ -11,7 +10,7 @@ function Book(id, title, author, pages, read) {
         return (`${title} by ${author}, ${pages} pages, ${read}`);
     }
 }
-
+// Read toggle prototype
 Book.prototype.toggleRead = function() {
     if(this.read === true){
         this.read = false
@@ -19,6 +18,7 @@ Book.prototype.toggleRead = function() {
         this.read = true
     }
 }
+
 
 function addBookToLibrary(i, title, author, pages, read) {
     // take params, create a book then it in the array
@@ -55,38 +55,11 @@ function addToTable(data) {
     }
 }
 
-// Preadded books when the page loads
-addBookToLibrary('id', 'The Hobbit', 'Tolkien', '256', true);
-addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', false);
-
-const myBook = new Book('id', 'CustomTitle','CustomAuthor', '328', false);
-addBookToLibrary(myBook.id, myBook.title, myBook.author, myBook.pages, myBook.read);
-console.log(`My test book is: ${myBook}`);
-
+// Render test books when the page loads
+addBookToLibrary('id', '451 Fahrenheit', 'Rey Bradbury', '252', true);
+addBookToLibrary('id', 'The Hobbit', 'Tolkien', '256', false);
+addBookToLibrary('id', 'The Remains of the Day', 'Kazuo Ishiguro', '258', true);
 addToTable(myLibrary);
-console.log(myLibrary)
-
-//Delete the book from the library
-
-document.addEventListener('click', e => {
-    if(e.target.classList.contains("deleteButton")) {
-        const buttonId = e.target.dataset.buttonId;
-    myLibrary.forEach((element) => {
-        if(element.id === buttonId) {
-            const bookIndex = myLibrary.indexOf(element);
-            console.log(`bookIndex is: ${bookIndex}`)
-            const bookHTML = document.querySelector(`tr[data-book-id="${buttonId}"`);
-            console.log(`BookHTMLelement is ${bookHTML}`)
-            console.log(`Index of the book in myLibrary is: ${myLibrary.indexOf(element)}`);
-            myLibrary.splice(bookIndex, 1);
-            console.log(myLibrary);
-            bookHTML.remove();
-        }
-    })
-    console.log(e.target.dataset.buttonId);
-    }
-})
-
 
 // Add last item from myLibrary to the table 
 function addLastToTable(data) {
@@ -151,9 +124,27 @@ document.getElementById("addBook__submit").onclick = function() {
 
 }
 
+//Delete the book from the library
+document.addEventListener('click', e => {
+    if(e.target.classList.contains("deleteButton")) {
+        const buttonId = e.target.dataset.buttonId;
+    myLibrary.forEach((element) => {
+        if(element.id === buttonId) {
+            const bookIndex = myLibrary.indexOf(element);
+            console.log(`bookIndex is: ${bookIndex}`)
+            const bookHTML = document.querySelector(`tr[data-book-id="${buttonId}"`);
+            console.log(`BookHTMLelement is ${bookHTML}`)
+            console.log(`Index of the book in myLibrary is: ${myLibrary.indexOf(element)}`);
+            myLibrary.splice(bookIndex, 1);
+            console.log(myLibrary);
+            bookHTML.remove();
+        }
+    })
+    console.log(e.target.dataset.buttonId);
+    }
+})
 
 // Read button toggle functionality
-
 document.addEventListener('click', e => {
     if(e.target.classList.contains("readButton")){
         const readId = e.target.dataset.readId;
