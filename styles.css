@@ -7,9 +7,9 @@
     --table-headers-bg: #2e2a2a;
     --search-input-bg: #2f2f2f;
     --search-input-border: #444444;
-    --add-book-button-bg: #1f364d;
+    --add-book-button-bg: #264f78;
     --add-book-button-text: #e0e0e0;
-    --read-button-active: #2d6a4f;
+    --read-button-active: #117447;
     --read-button-inactive: #3a3a3a;
 }
 #container {
@@ -77,6 +77,8 @@ table {
     justify-self: stretch;
     border-collapse: collapse;
     margin: 25px 0;
+    table-layout: fixed;
+    width: 100%;
 }
 .deleteButton {
     background-color: var(--read-button-inactive);
