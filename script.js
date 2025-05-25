@@ -33,15 +33,25 @@ function addBookToLibrary(i, title, author, pages, read) {
 function addToTable(data) {
     var table = document.getElementById('bookTable')
     for (var i = 0; i < data.length; i++) {
+        let readStatus;
+        let classStatus;
+        if(data[i].read === true){
+                readStatus = "Read";
+                classStatus = "read";
+            } else if(data[i].read === false) {
+                readStatus = "Not Read";
+                classStatus = "notread"
+            }
         var row = `<tr data-book-id="${data[i].id}">
                         <td>${data[i].title}</td>
                         <td>${data[i].author}</td>
                         <td>${data[i].pages}</td>
-                        <td><button class="readButton" data-read-id="${data[i].id}">Read</button></td>
+                        <td><button class="readButton ${classStatus}" data-read-id="${data[i].id}">${readStatus}</button></td>
 
                         <td><button class="deleteButton" data-button-id="${data[i].id}">Delete</button></td>
                     </tr>`
             table.innerHTML += row
+            
     }
 }
 
@@ -81,11 +91,20 @@ document.addEventListener('click', e => {
 // Add last item from myLibrary to the table 
 function addLastToTable(data) {
     var table = document.getElementById('bookTable')
+        let readStatus;
+        let classStatus;
+        if(data.at(-1).read === true){
+                readStatus = "Read";
+                classStatus = "read";
+            } else if(data.at(-1).read === false) {
+                readStatus = "Not Read";
+                classStatus = "notread"
+            }
         var row = `<tr data-book-id="${data.at(-1).id}"">
                         <td>${data.at(-1).title}</td>
                         <td>${data.at(-1).author}</td>
                         <td>${data.at(-1).pages}</td>
-                        <td><button class="readButton" data-read-id="${data.at(-1).id}"></button></td>
+                        <td><button class="readButton ${classStatus}" data-read-id="${data.at(-1).id}">${readStatus}</button></td>
                         <td><button class="deleteButton" data-button-id="${data.at(-1).id}">Delete</button></td>
                     </tr>`
             table.innerHTML += row
@@ -129,6 +148,7 @@ document.getElementById("addBook__submit").onclick = function() {
     console.log(myLibrary)
     console.log(document.getElementById('form__read').checked)
     form.reset()
+
 }
 
 
@@ -144,13 +164,13 @@ document.addEventListener('click', e => {
                 element.toggleRead()
                 if(e.target.innerHTML === "Read") {
                     e.target.innerHTML = "Not Read";
-                    e.target.classList.remove("active")
-                    
+                    e.target.classList.remove("read")
+                    e.target.classList.add("notread")  
                 } else if(e.target.innerHTML === "Not Read") {
                     e.target.innerHTML = "Read"
-                    e.target.classList.add("active")
+                    e.target.classList.remove("notread")
+                    e.target.classList.add("read")
                 }
-                
                 console.log(element.read)
             } else return;
         })

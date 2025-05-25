@@ -4,7 +4,7 @@
     --text-primary: #ffffff;
     --text-secondary: #c5c5c5;
     --table-borders: #3a3a3a;
-    --table-headers-bg: #444444;
+    --table-headers-bg: #2e2a2a;
     --search-input-bg: #2f2f2f;
     --search-input-border: #444444;
     --add-book-button-bg: #1f364d;
@@ -56,29 +56,58 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 #addBook__button {
     background-color: var(--add-book-button-bg);
     color: var(--add-book-button-text);
     height: 80%;
     font-family: 'robotoregular';
+    font-weight: bold;
     border-radius: 6px;
+    border: none;
+    padding: 8px;
+    margin: 5px;
+    box-shadow: 1px 1px 1px var(--main-bg-color);
+}
+#addBook__button:hover {
+    scale: 1.1;
+    cursor: pointer;
 }
 
 /* Main content styling */
 td, th {
-    border: solid 1px var(--table-borders);
+    border-bottom: solid 1px var(--table-borders);
     padding: 0.5rem;
-    color: var(--text-primary)
+    padding-left: 1rem;
+    color: var(--text-primary);
+    text-align: left;
+}
+th {
+    background-color: var(--table-headers-bg);
+    font-weight: bold;
+    color: var(--text-secondary)
 }
 #content {
     justify-self: stretch;
     padding: 20px;
+    font-family: "robotoregular";
 }
 table {
     justify-self: stretch;
     border-collapse: collapse;
+    margin: 25px 0;
+}
+.deleteButton {
+    background-color: var(--read-button-inactive);
+    color: var(--add-book-button-text);
+    font-family: "robotoregular";
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+}
+.deleteButton:hover {
+    scale: 1.1;
+    cursor: pointer;
 }
 
 /* Form styling */
@@ -128,7 +157,6 @@ table {
 }
 #addBook__form input[type='text'] {
     width: 80%;
-
 }
 #addBook__form input[type='number'] {
     width: 80%;
@@ -153,3 +181,23 @@ table {
     pointer-events: all;
 }
 
+/* read button styling */
+.readButton {
+    font-family: "robotoregular";
+    color: var(--text-secondary);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}
+.readButton:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+.readButton.read{
+    background-color: var(--read-button-active);
+    color: var(--text-primary)
+}
+
+.readButton.notread {
+    background-color: var(--read-button-inactive);
+}
