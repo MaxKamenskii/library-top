@@ -1,12 +1,15 @@
 const myLibrary = [];
 
-function Book(id, title, author, pages, read) {
-    this.id = id,
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read,
-    this.info = function() {
+class Book {
+    constructor(id, title, author, pages, read) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info() {
         return (`${title} by ${author}, ${pages} pages, ${read}`);
     }
 }
@@ -19,15 +22,12 @@ Book.prototype.toggleRead = function() {
     }
 }
 
-
 function addBookToLibrary(i, title, author, pages, read) {
     // take params, create a book then it in the array
     let uuid = self.crypto.randomUUID();
     let book = new Book(uuid, title, author, pages, read)
     myLibrary.push(book)
 }
-
-
 
 // Add everything to the table
 function addToTable(data) {

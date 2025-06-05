@@ -158,14 +158,12 @@ table {
 #addBook__form input[type='number'] {
     width: 100%;
 }
-
 label {
     display: block;
 }
 input {
     box-sizing: border-box;
 }
-
 #form__read {
     margin: 0px 10px;
 }
@@ -219,7 +217,6 @@ input {
     background-color: var(--read-button-active);
     color: var(--text-primary)
 }
-
 .readButton.notread {
     background-color: var(--read-button-inactive);
 }
